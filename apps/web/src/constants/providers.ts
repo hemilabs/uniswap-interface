@@ -32,6 +32,7 @@ export const RPC_PROVIDERS = {
   [ChainId.BNB]: getAppProvider(ChainId.BNB),
   [ChainId.AVALANCHE]: getAppProvider(ChainId.AVALANCHE),
   [ChainId.BASE]: getAppProvider(ChainId.BASE),
+  [ChainId.HEMI_SEPOLIA]: getAppProvider(ChainId.HEMI_SEPOLIA),
 } satisfies Record<SupportedInterfaceChain, AppJsonRpcProvider>
 
 export const DEPRECATED_RPC_PROVIDERS = {
@@ -49,4 +50,5 @@ export const DEPRECATED_RPC_PROVIDERS = {
   [ChainId.BNB]: providerFactory(ChainId.BNB),
   [ChainId.AVALANCHE]: providerFactory(ChainId.AVALANCHE),
   [ChainId.BASE]: providerFactory(ChainId.BASE),
+  [ChainId.HEMI_SEPOLIA]: providerFactory(ChainId.HEMI_SEPOLIA),
 } satisfies Record<SupportedInterfaceChain, ConfiguredJsonRpcProvider>

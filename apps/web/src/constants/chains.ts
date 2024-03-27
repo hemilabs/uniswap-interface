@@ -15,6 +15,7 @@ export const CHAIN_IDS_TO_NAMES = {
   [ChainId.BNB]: 'bnb',
   [ChainId.AVALANCHE]: 'avalanche',
   [ChainId.BASE]: 'base',
+  [ChainId.HEMI_SEPOLIA]: 'Hemi Sepolia',
 } as const
 
 // Include ChainIds in this array if they are not supported by the UX yet, but are already in the SDK.
@@ -75,6 +76,9 @@ export const TESTNET_CHAIN_IDS = [
   ChainId.ARBITRUM_GOERLI,
   ChainId.OPTIMISM_GOERLI,
   ChainId.CELO_ALFAJORES,
+  // TODO once Hemi mainnet is available, we should add this here
+  // This is added to avoid having to force users to manually enable tesnets to see it
+  // ChainId.HEMI_SEPOLIA
 ] as const
 
 /**
@@ -104,6 +108,7 @@ export const L2_CHAIN_IDS = [
   ChainId.OPTIMISM,
   ChainId.OPTIMISM_GOERLI,
   ChainId.BASE,
+  ChainId.HEMI_SEPOLIA,
 ] as const
 
 export type SupportedL2ChainId = (typeof L2_CHAIN_IDS)[number]

@@ -247,6 +247,22 @@ export const DAI_AVALANCHE = new Token(
   'Dai.e Token'
 )
 
+export const TESNET_DAI_HEMI_SEPOLIA = new Token(
+  ChainId.HEMI_SEPOLIA,
+  '0xec46e0efb2ea8152da0327a5eb3ff9a43956f13e',
+  18,
+  'thDAI',
+  'Testnet Hemi DAI'
+)
+
+export const WETH_HEMI_SEPOLIA = new Token(
+  ChainId.HEMI_SEPOLIA,
+  '0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A',
+  18,
+  'WETH',
+  'Wrapped Ether'
+)
+
 export const UNI: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESSES[ChainId.MAINNET], 18, 'UNI', 'Uniswap'),
   [ChainId.GOERLI]: new Token(ChainId.GOERLI, UNI_ADDRESSES[ChainId.GOERLI], 18, 'UNI', 'Uniswap'),
@@ -341,6 +357,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'WAVAX',
     'Wrapped AVAX'
   ),
+  [ChainId.HEMI_SEPOLIA]: WETH_HEMI_SEPOLIA
 }
 
 export function isCelo(chainId: number): chainId is ChainId.CELO | ChainId.CELO_ALFAJORES {
@@ -424,6 +441,28 @@ class AvaxNativeCurrency extends NativeCurrency {
   }
 }
 
+export function isHemiSepolia(chainId: number): chainId is ChainId.HEMI_SEPOLIA {
+  return chainId === ChainId.HEMI_SEPOLIA
+}
+
+class HemiSepoliaNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  get wrapped(): Token {
+    if (!isHemiSepolia(this.chainId)) throw new Error('Not Hemi Sepolia')
+    const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
+    invariant(wrapped instanceof Token)
+    return wrapped
+  }
+
+  public constructor(chainId: number) {
+    if (!isHemiSepolia(chainId)) throw new Error('Not Hemi Sepolia')
+    super(chainId, 18, 'thETH', 'thETH')
+  }
+}
+
 class ExtendedEther extends NativeCurrency {
   public get wrapped(): Token {
     const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
@@ -458,6 +497,8 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
     nativeCurrency = new BscNativeCurrency(chainId)
   } else if (isAvalanche(chainId)) {
     nativeCurrency = new AvaxNativeCurrency(chainId)
+  } else if (isHemiSepolia(chainId)) {
+    nativeCurrency = new HemiSepoliaNativeCurrency(chainId)
   } else {
     nativeCurrency = ExtendedEther.onChain(chainId)
   }
@@ -503,6 +544,7 @@ const STABLECOINS: { [chainId in ChainId]: Token[] } = {
   [ChainId.BASE_GOERLI]: [],
   [ChainId.OPTIMISM_SEPOLIA]: [USDC_SEPOLIA],
   [ChainId.ARBITRUM_SEPOLIA]: [],
+  [ChainId.HEMI_SEPOLIA]: [TESNET_DAI_HEMI_SEPOLIA],
 }
 
 export function isStablecoin(currency?: Currency): boolean {

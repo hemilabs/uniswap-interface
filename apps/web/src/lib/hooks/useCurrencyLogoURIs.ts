@@ -8,9 +8,10 @@ import AvaxLogo from '../../assets/svg/avax_logo.svg'
 import BnbLogo from '../../assets/svg/bnb-logo.svg'
 import CeloLogo from '../../assets/svg/celo_logo.svg'
 import MaticLogo from '../../assets/svg/matic-token-icon.svg'
+import HemiEthLogo from '../../assets/svg/hemi-logo.svg'
 import { NATIVE_CHAIN_ID, isCelo, nativeOnChain } from '../../constants/tokens'
 
-type Network = 'ethereum' | 'arbitrum' | 'optimism' | 'polygon' | 'smartchain' | 'celo' | 'avalanchec' | 'base'
+type Network = 'ethereum' | 'arbitrum' | 'optimism' | 'polygon' | 'smartchain' | 'celo' | 'avalanchec' | 'base' | 'hemi sepolia'
 
 export function chainIdToNetworkName(networkId: ChainId): Network {
   switch (networkId) {
@@ -30,6 +31,8 @@ export function chainIdToNetworkName(networkId: ChainId): Network {
       return 'avalanchec'
     case ChainId.BASE:
       return 'base'
+    case ChainId.HEMI_SEPOLIA:
+      return 'hemi sepolia'
     default:
       return 'ethereum'
   }
@@ -47,6 +50,8 @@ export function getNativeLogoURI(chainId: ChainId = ChainId.MAINNET): string {
       return CeloLogo
     case ChainId.AVALANCHE:
       return AvaxLogo
+    case ChainId.HEMI_SEPOLIA:
+        return HemiEthLogo
     default:
       return EthereumLogo
   }

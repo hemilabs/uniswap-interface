@@ -22,6 +22,7 @@ import { isExactInput, transformQuoteToTrade } from './utils'
 
 const UNISWAP_API_URL = process.env.REACT_APP_UNISWAP_API_URL
 const UNISWAP_GATEWAY_DNS_URL = process.env.REACT_APP_UNISWAP_GATEWAY_DNS
+const HEMI_UNISWAP_API_URL = process.env.REACT_APP_HEMI_UNISWAP_API_URL
 if (UNISWAP_API_URL === undefined || UNISWAP_GATEWAY_DNS_URL === undefined) {
   throw new Error(`UNISWAP_API_URL and UNISWAP_GATEWAY_DNS_URL must be defined environment variables`)
 }
@@ -86,7 +87,6 @@ export const routingApi = createApi({
             amount,
             tradeType,
             sendPortionEnabled,
-            gatewayDNSUpdateEnabled,
           } = args
 
           const requestBody = {
@@ -102,7 +102,7 @@ export const routingApi = createApi({
             configs: getRoutingAPIConfig(args),
           }
 
-          const baseURL = gatewayDNSUpdateEnabled ? UNISWAP_GATEWAY_DNS_URL : UNISWAP_API_URL
+          const baseURL = HEMI_UNISWAP_API_URL
           try {
             return trace.child({ name: 'Quote on server', op: 'quote.server' }, async (serverTrace) => {
               const response = await fetch({
