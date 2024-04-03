@@ -4,7 +4,7 @@ import { InterfaceModalName, NFTEventName } from '@uniswap/analytics-events'
 import { Trace, useTrace } from 'analytics'
 import clsx from 'clsx'
 import { OpacityHoverState } from 'components/Common'
-import { UniIcon } from 'components/Logo/UniIcon'
+import { HemiIcon } from 'components/Logo/HemiIcon'
 import { Box } from 'nft/components/Box'
 import { Portal } from 'nft/components/common/Portal'
 import { Row } from 'nft/components/Flex'
@@ -32,12 +32,12 @@ const UploadLink = styled.a`
   color: ${({ theme }) => theme.neutral2};
   cursor: pointer;
 
-  ${OpacityHoverState}
-
   @media only screen and (max-width: ${({ theme }) => `${theme.breakpoint.sm}px`}) {
     right: 12px;
     top: 28px;
   }
+
+  ${OpacityHoverState}
 `
 
 const TxCompleteModal = () => {
@@ -112,7 +112,7 @@ const TxCompleteModal = () => {
                 shouldLogImpression
               >
                 <Box className={styles.successModal} onClick={stopPropagation}>
-                  <UniIcon color={vars.color.pink400} width="36" height="36" className={styles.uniLogo} />
+                  <HemiIcon color={vars.color.pink400} width="36" height="36" className={styles.uniLogo} />
                   <Box display="flex" flexWrap="wrap" width="full" height="min">
                     <h1 className={styles.title}>
                       <Trans>Complete!</Trans>
