@@ -52,7 +52,7 @@ export function NetworkAlert() {
   if (!chainId || !isSupportedChain(chainId)) return null
 
   const { Symbol: ChainSymbol, bgColor, textColor } = getChainUI(chainId, darkMode)
-  const { label, bridge } = getChainInfo(chainId)
+  const { label, bridge } = getChainInfo(chainId) || {}
 
   return bridge ? (
     <BridgeLink href={bridge} bgColor={bgColor}>

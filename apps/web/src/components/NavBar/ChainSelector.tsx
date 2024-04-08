@@ -9,7 +9,7 @@ import { getConnection } from 'connection'
 import { ConnectionType } from 'connection/types'
 import { WalletConnectV2 } from 'connection/WalletConnectV2'
 import { getChainInfo } from 'constants/chainInfo'
-import { getChainPriority, L1_CHAIN_IDS, L2_CHAIN_IDS, TESTNET_CHAIN_IDS } from 'constants/chains'
+import { getChainPriority, L2_CHAIN_IDS, TESTNET_CHAIN_IDS } from 'constants/chains'
 import { useOnClickOutside } from 'hooks/useOnClickOutside'
 import useSelectChain from 'hooks/useSelectChain'
 import useSyncChainQuery from 'hooks/useSyncChainQuery'
@@ -25,7 +25,7 @@ import { getSupportedChainIdsFromWalletConnectSession } from 'utils/getSupported
 import ChainSelectorRow from './ChainSelectorRow'
 import { NavDropdown } from './NavDropdown'
 
-const NETWORK_SELECTOR_CHAINS = [...L1_CHAIN_IDS, ...L2_CHAIN_IDS]
+const NETWORK_SELECTOR_CHAINS = [...L2_CHAIN_IDS]
 
 const ChainSelectorWrapper = styled.div`
   position: relative;
@@ -146,7 +146,6 @@ export const ChainSelector = ({ leftAlign }: { leftAlign?: boolean }) => {
     width: 20,
     color: theme.neutral2,
   }
-
   return (
     <ChainSelectorWrapper ref={ref}>
       <MouseoverTooltip text={t`Your wallet's current network is unsupported.`} disabled={isSupported}>
