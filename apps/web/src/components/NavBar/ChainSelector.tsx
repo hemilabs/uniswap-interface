@@ -146,6 +146,7 @@ export const ChainSelector = ({ leftAlign }: { leftAlign?: boolean }) => {
     width: 20,
     color: theme.neutral2,
   }
+
   return (
     <ChainSelectorWrapper ref={ref}>
       <MouseoverTooltip text={t`Your wallet's current network is unsupported.`} disabled={isSupported}>
