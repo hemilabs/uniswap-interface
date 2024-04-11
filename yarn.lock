@@ -5244,9 +5244,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hemilabs/universal-router-sdk@npm:1.8.2-beta.1":
-  version: 1.8.2-beta.1
-  resolution: "@hemilabs/universal-router-sdk@npm:1.8.2-beta.1"
+"@hemilabs/universal-router-sdk@npm:1.8.2-beta.3":
+  version: 1.8.2-beta.3
+  resolution: "@hemilabs/universal-router-sdk@npm:1.8.2-beta.3"
   dependencies:
     "@hemilabs/sdk-core": 4.2.0-beta.2
     "@uniswap/permit2-sdk": ^1.2.0
@@ -5256,7 +5256,7 @@ __metadata:
     "@uniswap/v3-sdk": ^3.11.0
     bignumber.js: ^9.0.2
     ethers: ^5.3.1
-  checksum: 910d0657222cb1cf4ba8dfc9364f2c545a2402b60d14987775b5cd8194b9b6b6b5b600d65a9646369dc2a006bc2ec7eacd9be7994323368f7c5e99da5f24999c
+  checksum: e8842c720d1f98d3b620d6ef1b9092dc23796fb4c20017175f95cb225e08695300058e01a63363cb7d3e4758922892af972e5123098652359224f68f29c1d1e1
   languageName: node
   linkType: hard
 
@@ -13533,7 +13533,7 @@ __metadata:
     "@graphql-codegen/typescript-resolvers": ^3.2.1
     "@hemilabs/sdk-core": 4.2.0-beta.2
     "@hemilabs/smart-order-router": 3.26.1-beta.1
-    "@hemilabs/universal-router-sdk": 1.8.2-beta.1
+    "@hemilabs/universal-router-sdk": 1.8.2-beta.3
     "@juggle/resize-observer": 3.4.0
     "@lingui/cli": 4.5.0
     "@lingui/core": 4.5.0
