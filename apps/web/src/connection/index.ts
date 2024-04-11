@@ -21,6 +21,8 @@ import { Connection, ConnectionType, ProviderInfo } from './types'
 import { getDeprecatedInjection, getIsCoinbaseWallet, getIsInjected, getIsMetaMaskWallet } from './utils'
 import { UniwalletConnect as UniwalletWCV2Connect, WalletConnectV2 } from './WalletConnectV2'
 
+const DEFAULT_CHAIN_ID = ChainId.HEMI_SEPOLIA
+
 function onError(error: Error) {
   console.debug(`web3-react error: ${error}`)
 }
@@ -59,7 +61,7 @@ export const eip6963Connection: InjectedConnection = {
 }
 
 const [web3Network, web3NetworkHooks] = initializeConnector<Network>(
-  (actions) => new Network({ actions, urlMap: RPC_PROVIDERS, defaultChainId: 1 })
+  (actions) => new Network({ actions, urlMap: RPC_PROVIDERS, defaultChainId: DEFAULT_CHAIN_ID })
 )
 export const networkConnection: Connection = {
   getProviderInfo: () => ({ name: 'Network' }),
@@ -74,7 +76,7 @@ const [deprecatedWeb3Network, deprecatedWeb3NetworkHooks] = initializeConnector<
     new Network({
       actions,
       urlMap: DEPRECATED_RPC_PROVIDERS,
-      defaultChainId: 1,
+      defaultChainId: DEFAULT_CHAIN_ID,
     })
 )
 export const deprecatedNetworkConnection: Connection = {
@@ -120,7 +122,7 @@ export const gnosisSafeConnection: Connection = {
 }
 
 export const walletConnectV2Connection: Connection = new (class implements Connection {
-  private initializer = (actions: Actions, defaultChainId = ChainId.MAINNET) =>
+  private initializer = (actions: Actions, defaultChainId = DEFAULT_CHAIN_ID) =>
     new WalletConnectV2({ actions, defaultChainId, onError })
 
   type = ConnectionType.WALLET_CONNECT_V2
@@ -201,7 +203,7 @@ const [web3CoinbaseWallet, web3CoinbaseWalletHooks] = initializeConnector<Coinba
     new CoinbaseWallet({
       actions,
       options: {
-        url: APP_RPC_URLS[ChainId.MAINNET][0],
+        url: APP_RPC_URLS[ChainId.HEMI_SEPOLIA][0],
         appName: 'Uniswap',
         appLogoUrl: UNISWAP_LOGO,
         reloadOnDisconnect: false,
