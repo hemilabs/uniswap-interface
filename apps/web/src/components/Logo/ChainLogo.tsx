@@ -5,16 +5,7 @@ import { CSSProperties, FunctionComponent } from 'react'
 import { useTheme } from 'styled-components'
 import { useIsDarkMode } from 'theme/components/ThemeToggle'
 
-import { ReactComponent as arbitrum } from './ChainSymbols/arbitrum.svg'
-import { ReactComponent as avax } from './ChainSymbols/avax.svg'
-import { ReactComponent as base } from './ChainSymbols/base.svg'
-import { ReactComponent as bnb } from './ChainSymbols/bnb.svg'
-import { ReactComponent as celo } from './ChainSymbols/celo.svg'
-import { ReactComponent as celoLight } from './ChainSymbols/celo_light.svg'
-import { ReactComponent as ethereum } from './ChainSymbols/ethereum.svg'
 import { ReactComponent as hemi } from './ChainSymbols/hemi.svg'
-import { ReactComponent as optimism } from './ChainSymbols/optimism.svg'
-import { ReactComponent as polygon } from './ChainSymbols/polygon.svg'
 
 type SVG = FunctionComponent<React.SVGProps<SVGSVGElement>>
 type ChainUI = { Symbol: SVG; bgColor: string; textColor: string }
@@ -22,12 +13,6 @@ type ChainUI = { Symbol: SVG; bgColor: string; textColor: string }
 export function getChainUI(chainId: SupportedInterfaceChain, darkMode: boolean): ChainUI
 export function getChainUI(chainId: ChainId): ChainUI | undefined {
   switch (chainId) {
-    case ChainId.MAINNET:
-      return {
-        Symbol: ethereum,
-        bgColor: '#6B8AFF33',
-        textColor: '#6B8AFF',
-      }
     case ChainId.HEMI_SEPOLIA:
       return {
         Symbol: hemi,
