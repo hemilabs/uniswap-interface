@@ -203,7 +203,7 @@ const [web3CoinbaseWallet, web3CoinbaseWalletHooks] = initializeConnector<Coinba
     new CoinbaseWallet({
       actions,
       options: {
-        url: APP_RPC_URLS[ChainId.HEMI_SEPOLIA][0],
+        url: APP_RPC_URLS[DEFAULT_CHAIN_ID][0],
         appName: 'Uniswap',
         appLogoUrl: UNISWAP_LOGO,
         reloadOnDisconnect: false,
