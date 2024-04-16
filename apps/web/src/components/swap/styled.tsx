@@ -136,6 +136,10 @@ export const SwapShowAcceptChanges = styled(AutoColumn)`
   border-radius: 12px;
 `
 
+export const SwapFormWrapper = styled.div`
+  background-color: ${({ theme }) => theme.boxBg};
+  padding: 16px;
+`
 export const SwapSection = styled.div`
   background-color: ${({ theme }) => theme.surface2};
   border-radius: 16px;

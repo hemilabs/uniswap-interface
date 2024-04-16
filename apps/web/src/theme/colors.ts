@@ -128,34 +128,20 @@ export const colors = {
   scrim: 'rgba(0, 0, 0, 0.60)',
 }
 
-export type ThemeColors = typeof darkTheme
+const colorsHemi = {
+  white: '#FFFFFF',
+  black: '#000000',
+  slate_50: '#F7F7F7',
+  slate_100: '#E5E6E6',
+  accent: '#FF6C15',
+}
+
+export type ThemeColors = typeof hemiDarkTheme | typeof darkTheme
 
 const commonTheme = {
   white: colors.white,
   black: colors.black,
-
-  chain_1: colors.networkEthereum,
-  chain_3: colors.yellow400,
-  chain_4: colors.pink400,
-  chain_5: colors.green400,
-  chain_10: colors.networkOptimism,
-  chain_137: colors.networkPolygon,
-  chain_42: colors.networkArbitrum,
-  chain_56: colors.networkBsc,
-  chain_420: colors.networkOptimism,
-  chain_42161: colors.networkArbitrum,
-  chain_421613: colors.networkArbitrum,
-  chain_421614: colors.networkArbitrum,
-  chain_80001: colors.networkPolygon,
-  chain_43114: colors.networkOptimism,
-  chain_137_background: colors.purple900,
-  chain_10_background: colors.red900,
-  chain_43114_background: colors.red900,
-  chain_42161_background: colors.blue900,
-  chain_84531: colors.networkBase,
-  chain_56_background: colors.networkBsc,
   promotional: colors.magenta300,
-
   brandedGradient: 'linear-gradient(139.57deg, #FF79C9 4.35%, #FFB8E2 96.44%);',
   promotionalGradient: colors.accent1_light,
 }
@@ -221,3 +207,14 @@ export const lightTheme: ThemeColors = {
 
   warning2: colors.gold200,
 }
+
+export const hemiLightTheme = {
+  ...commonTheme,
+  chain_743111: colorsHemi.accent,
+  chain_743111_background: colorsHemi.white,
+  mainBackgroundColor: colorsHemi.slate_50,
+  mainBorderColor: colorsHemi.slate_100,
+  boxBg: colorsHemi.white,
+}
+
+export const hemiDarkTheme = hemiLightTheme // @TODO: add dark theme here

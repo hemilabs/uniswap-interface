@@ -21,7 +21,7 @@ import confirmPriceImpactWithoutFee from 'components/swap/confirmPriceImpactWith
 import { Field } from 'components/swap/constants'
 import PriceImpactModal from 'components/swap/PriceImpactModal'
 import PriceImpactWarning from 'components/swap/PriceImpactWarning'
-import { ArrowContainer, ArrowWrapper, OutputSwapSection, SwapSection } from 'components/swap/styled'
+import {ArrowContainer, ArrowWrapper, OutputSwapSection, SwapFormWrapper, SwapSection} from 'components/swap/styled'
 import SwapDetailsDropdown from 'components/swap/SwapDetailsDropdown'
 import TokenSafetyModal from 'components/TokenSafety/TokenSafetyModal'
 import { useConnectionReady } from 'connection/eagerlyConnect'
@@ -516,51 +516,52 @@ export function SwapForm({ disableTokenInputs = false, onCurrencyChange }: SwapF
           }}
         />
       )}
-      <div style={{ display: 'relative' }}>
-        <SwapSection>
-          <Trace section={InterfaceSectionName.CURRENCY_INPUT_PANEL}>
-            <SwapCurrencyInputPanel
-              label={<Trans>You pay</Trans>}
-              disabled={disableTokenInputs}
-              value={formattedAmounts[Field.INPUT]}
-              showMaxButton={showMaxButton}
-              currency={currencies[Field.INPUT] ?? null}
-              onUserInput={handleTypeInput}
-              onMax={handleMaxInput}
-              fiatValue={showFiatValueInput ? fiatValueInput : undefined}
-              onCurrencySelect={handleInputSelect}
-              otherCurrency={currencies[Field.OUTPUT]}
-              currencySearchFilters={SWAP_FORM_CURRENCY_SEARCH_FILTERS}
-              id={InterfaceSectionName.CURRENCY_INPUT_PANEL}
-              loading={independentField === Field.OUTPUT && routeIsSyncing}
-              ref={inputCurrencyNumericalInputRef}
-            />
-          </Trace>
-        </SwapSection>
-        <ArrowWrapper clickable={isSupportedChain(chainId)}>
-          <TraceEvent
-            events={[BrowserEvent.onClick]}
-            name={SwapEventName.SWAP_TOKENS_REVERSED}
-            element={InterfaceElementName.SWAP_TOKENS_REVERSE_ARROW_BUTTON}
-          >
-            <ArrowContainer
-              data-testid="swap-currency-button"
-              onClick={() => {
-                if (disableTokenInputs) return
-                onSwitchTokens({
-                  newOutputHasTax: inputTokenHasTax,
-                  previouslyEstimatedOutput: formattedAmounts[dependentField],
-                })
-                maybeLogFirstSwapAction(trace)
-              }}
-              color={theme.neutral1}
+      <SwapFormWrapper>
+        <div style={{ display: 'relative' }}>
+          <SwapSection>
+            <Trace section={InterfaceSectionName.CURRENCY_INPUT_PANEL}>
+              <SwapCurrencyInputPanel
+                label={<Trans>You pay</Trans>}
+                disabled={disableTokenInputs}
+                value={formattedAmounts[Field.INPUT]}
+                showMaxButton={showMaxButton}
+                currency={currencies[Field.INPUT] ?? null}
+                onUserInput={handleTypeInput}
+                onMax={handleMaxInput}
+                fiatValue={showFiatValueInput ? fiatValueInput : undefined}
+                onCurrencySelect={handleInputSelect}
+                otherCurrency={currencies[Field.OUTPUT]}
+                currencySearchFilters={SWAP_FORM_CURRENCY_SEARCH_FILTERS}
+                id={InterfaceSectionName.CURRENCY_INPUT_PANEL}
+                loading={independentField === Field.OUTPUT && routeIsSyncing}
+                ref={inputCurrencyNumericalInputRef}
+              />
+            </Trace>
+          </SwapSection>
+          <ArrowWrapper clickable={isSupportedChain(chainId)}>
+            <TraceEvent
+              events={[BrowserEvent.onClick]}
+              name={SwapEventName.SWAP_TOKENS_REVERSED}
+              element={InterfaceElementName.SWAP_TOKENS_REVERSE_ARROW_BUTTON}
             >
-              <ArrowDown size="16" color={theme.neutral1} />
-            </ArrowContainer>
-          </TraceEvent>
-        </ArrowWrapper>
-      </div>
-      <AutoColumn gap="xs">
+              <ArrowContainer
+                data-testid="swap-currency-button"
+                onClick={() => {
+                  if (disableTokenInputs) return
+                  onSwitchTokens({
+                    newOutputHasTax: inputTokenHasTax,
+                    previouslyEstimatedOutput: formattedAmounts[dependentField],
+                  })
+                  maybeLogFirstSwapAction(trace)
+                }}
+                color={theme.neutral1}
+              >
+                <ArrowDown size="16" color={theme.neutral1} />
+              </ArrowContainer>
+            </TraceEvent>
+          </ArrowWrapper>
+        </div>
+        <AutoColumn gap="xs">
         <div>
           <OutputSwapSection>
             <Trace section={InterfaceSectionName.CURRENCY_OUTPUT_PANEL}>
@@ -697,6 +698,7 @@ export function SwapForm({ disableTokenInputs = false, onCurrencyChange }: SwapF
           )}
         </div>
       </AutoColumn>
+      </SwapFormWrapper>
     </>
   )
 }
