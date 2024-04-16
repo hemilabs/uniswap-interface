@@ -1,6 +1,6 @@
 import { Trans } from '@lingui/macro'
 import { useWeb3React } from '@web3-react/core'
-import { HemiIcon } from 'components/Logo/HemiIcon'
+import { HemiLogo } from 'components/Logo/HemiLogo'
 import Web3Status from 'components/Web3Status'
 import { useIsLandingPage } from 'hooks/useIsLandingPage'
 import { useIsNftPage } from 'hooks/useIsNftPage'
@@ -18,7 +18,6 @@ import { useAccountDrawer } from 'components/AccountDrawer/MiniPortfolio/hooks'
 import { Z_INDEX } from 'theme/zIndex'
 import { useIsNavSearchInputVisible } from '../../nft/hooks/useIsNavSearchInputVisible'
 import { Bag } from './Bag'
-import Blur from './Blur'
 import { ChainSelector } from './ChainSelector'
 import { SearchBar } from './SearchBar'
 import * as styles from './style.css'
@@ -70,7 +69,7 @@ export const PageTabs = () => {
   )
 }
 
-const Navbar = ({ blur }: { blur: boolean }) => {
+const Navbar = () => {
   const isNftPage = useIsNftPage()
   const isLandingPage = useIsLandingPage()
   const sellPageState = useProfilePageState((state) => state.state)
@@ -94,13 +93,12 @@ const Navbar = ({ blur }: { blur: boolean }) => {
 
   return (
     <>
-      {blur && <Blur />}
       <Nav>
         <Box display="flex" height="full" flexWrap="nowrap">
           <Box className={styles.leftSideContainer}>
             <Box className={styles.logoContainer}>
-              <HemiIcon
-                width="36"
+              <HemiLogo
+                width="112"
                 height="36"
                 data-testid="uniswap-logo"
                 className={styles.logo}
@@ -108,14 +106,6 @@ const Navbar = ({ blur }: { blur: boolean }) => {
                 onClick={handleUniIconClick}
               />
             </Box>
-            {!isNftPage && (
-              <Box display={{ sm: 'flex', lg: 'none' }}>
-                <ChainSelector leftAlign={true} />
-              </Box>
-            )}
-            <Row display={{ sm: 'none', lg: 'flex' }}>
-              <PageTabs />
-            </Row>
           </Box>
           <Box className={styles.rightSideContainer}>
             <Row gap="12">
