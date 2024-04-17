@@ -25,6 +25,7 @@ import { MICROSITE_LINK } from 'utils/openDownloadApp'
 import { getCurrentPageFromLocation } from 'utils/urlRoutes'
 import { getCLS, getFCP, getFID, getLCP, Metric } from 'web-vitals'
 
+import Footer from '../components/Footer'
 import { findRouteByPath, RouteDefinition, routes, useRouterConfig } from './RouteDefinitions'
 
 const AppChrome = lazy(() => import('./AppChrome'))
@@ -37,12 +38,15 @@ const BodyWrapper = styled.div`
   margin: 0 10px 10px;
   border-radius: 24px;
   border: 1px solid ${({ theme }) => theme.mainBorderColor};
-  min-height: calc(100vh - 0px);
-  padding: 112px 0px 5rem 0px;
+  padding: 7rem 0 0;
   align-items: center;
   flex: 1;
+  @media only screen and (max-width: ${({ theme }) => `${theme.breakpoint.sm}px`}) {
+    padding-top: 2rem;
+  }
 `
 
+/*
 const MobileBottomBar = styled.div`
   z-index: ${Z_INDEX.sticky};
   position: fixed;
@@ -62,7 +66,7 @@ const MobileBottomBar = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.md}px) {
     display: none;
   }
-`
+`*/
 
 const HeaderWrapper = styled.div`
   ${flexRowNoWrap};
@@ -143,9 +147,10 @@ export default function App() {
           <Header />
           <ResetPageScrollEffect />
           <Body />
+          {/* @TODO: review if we'll use this when we add the pools pages
           <MobileBottomBar>
             <PageTabs />
-          </MobileBottomBar>
+          </MobileBottomBar>*/}
         </StatsigProvider>
       </Trace>
     </ErrorBoundary>
@@ -181,6 +186,7 @@ const Body = memo(function Body() {
         ) : (
           <Loader />
         )}
+        <Footer />
       </Suspense>
     </BodyWrapper>
   )
