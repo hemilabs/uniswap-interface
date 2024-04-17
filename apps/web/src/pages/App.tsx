@@ -34,11 +34,11 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 10px;
+  margin: 0 10px 10px;
   border-radius: 24px;
   border: 1px solid ${({ theme }) => theme.mainBorderColor};
   min-height: calc(100vh - 0px);
-  padding: ${({ theme }) => theme.navHeight}px 0px 5rem 0px;
+  padding: 112px 0px 5rem 0px;
   align-items: center;
   flex: 1;
 `

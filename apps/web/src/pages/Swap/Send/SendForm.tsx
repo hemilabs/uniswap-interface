@@ -22,6 +22,7 @@ import SendCurrencyInputForm from './SendCurrencyInputForm'
 import { SendRecipientForm } from './SendRecipientForm'
 import { SendReviewModal } from './SendReviewModal'
 import { SmartContractSpeedBumpModal } from './SmartContractSpeedBump'
+import { FormWrapper } from 'components/FormWrapper'
 
 type SendFormProps = {
   onCurrencyChange?: (selected: CurrencyState) => void
@@ -185,7 +186,7 @@ function SendFormInner({ disableTokenInputs = false, onCurrencyChange }: SendFor
   }, [handleModalState, sendCallback, setSendState])
 
   return (
-    <>
+    <FormWrapper>
       <Column gap="xs">
         <SendCurrencyInputForm disabled={disableTokenInputs} onCurrencyChange={onCurrencyChange} />
         <SendRecipientForm disabled={disableTokenInputs} />
@@ -240,7 +241,7 @@ function SendFormInner({ disableTokenInputs = false, onCurrencyChange }: SendFor
           onConfirm={handleConfirmNewAddressSpeedBump}
         />
       ) : null}
-    </>
+    </FormWrapper>
   )
 }
 

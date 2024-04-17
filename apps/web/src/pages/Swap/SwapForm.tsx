@@ -21,7 +21,7 @@ import confirmPriceImpactWithoutFee from 'components/swap/confirmPriceImpactWith
 import { Field } from 'components/swap/constants'
 import PriceImpactModal from 'components/swap/PriceImpactModal'
 import PriceImpactWarning from 'components/swap/PriceImpactWarning'
-import {ArrowContainer, ArrowWrapper, OutputSwapSection, SwapFormWrapper, SwapSection} from 'components/swap/styled'
+import {ArrowContainer, ArrowWrapper, OutputSwapSection, SwapSection} from 'components/swap/styled'
 import SwapDetailsDropdown from 'components/swap/SwapDetailsDropdown'
 import TokenSafetyModal from 'components/TokenSafety/TokenSafetyModal'
 import { useConnectionReady } from 'connection/eagerlyConnect'
@@ -62,6 +62,7 @@ import { didUserReject } from 'utils/swapErrorToUserReadableMessage'
 
 import { getIsReviewableQuote } from '.'
 import { OutputTaxTooltipBody } from './TaxTooltipBody'
+import {FormWrapper} from "../../components/FormWrapper";
 
 const SWAP_FORM_CURRENCY_SEARCH_FILTERS = {
   showCommonBases: true,
@@ -516,7 +517,7 @@ export function SwapForm({ disableTokenInputs = false, onCurrencyChange }: SwapF
           }}
         />
       )}
-      <SwapFormWrapper>
+      <FormWrapper>
         <div style={{ display: 'relative' }}>
           <SwapSection>
             <Trace section={InterfaceSectionName.CURRENCY_INPUT_PANEL}>
@@ -554,9 +555,8 @@ export function SwapForm({ disableTokenInputs = false, onCurrencyChange }: SwapF
                   })
                   maybeLogFirstSwapAction(trace)
                 }}
-                color={theme.neutral1}
               >
-                <ArrowDown size="16" color={theme.neutral1} />
+                <ArrowDown size="16" color={theme.accent} />
               </ArrowContainer>
             </TraceEvent>
           </ArrowWrapper>
@@ -698,7 +698,7 @@ export function SwapForm({ disableTokenInputs = false, onCurrencyChange }: SwapF
           )}
         </div>
       </AutoColumn>
-      </SwapFormWrapper>
+      </FormWrapper>
     </>
   )
 }

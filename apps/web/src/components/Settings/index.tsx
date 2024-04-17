@@ -36,7 +36,8 @@ const CloseButton = styled.button`
 `
 
 const Menu = styled.div`
-  position: relative;
+  position: absolute;
+  right: 0;
 `
 
 const MenuFlyout = styled(AutoColumn)`

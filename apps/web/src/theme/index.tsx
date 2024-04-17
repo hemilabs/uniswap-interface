@@ -115,7 +115,7 @@ export function getTheme(darkMode: boolean, overriddenColors?: Partial<ThemeColo
     : [hemiLightTheme, deprecatedLightTheme]
   const colorsWithOverrides = applyOverriddenColors(colors, overriddenColors)
 
-  return { ...colorsWithOverrides, ...deprecatedColors, ...getSettings(darkMode) }
+  return { ...deprecatedColors, ...colorsWithOverrides, ...getSettings(darkMode) }
 }
 
 function applyOverriddenColors(defaultColors: ThemeColors, overriddenColors?: Partial<ThemeColors>) {

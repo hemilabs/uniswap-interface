@@ -128,15 +128,19 @@ export const colors = {
   scrim: 'rgba(0, 0, 0, 0.60)',
 }
 
+export type ThemeColors = typeof hemiDarkTheme | typeof darkTheme
+
 const colorsHemi = {
   white: '#FFFFFF',
   black: '#000000',
   slate_50: '#F7F7F7',
   slate_100: '#E5E6E6',
-  accent: '#FF6C15',
+  slate_300: '#B2B3B3',
+  slate_400: '#999A9A',
+  orange_100: '#FFF0E8',
+  orange_200: '#FFE2D0',
+  orange_950: '#FF6C15', // hemi's brand color
 }
-
-export type ThemeColors = typeof hemiDarkTheme | typeof darkTheme
 
 const commonTheme = {
   white: colors.white,
@@ -210,11 +214,17 @@ export const lightTheme: ThemeColors = {
 
 export const hemiLightTheme = {
   ...commonTheme,
-  chain_743111: colorsHemi.accent,
+  chain_743111: colorsHemi.accent_1,
   chain_743111_background: colorsHemi.white,
   mainBackgroundColor: colorsHemi.slate_50,
   mainBorderColor: colorsHemi.slate_100,
   boxBg: colorsHemi.white,
+  fgColor: colorsHemi.slate_400,
+  btnBg: colorsHemi.white,
+  accent1: colorsHemi.orange_950,
+  accent2: colorsHemi.orange_100,
+  surface1: colorsHemi.white,
+  surface2: colorsHemi.slate_50,
 }
 
 export const hemiDarkTheme = hemiLightTheme // @TODO: add dark theme here
