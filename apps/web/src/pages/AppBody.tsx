@@ -9,7 +9,6 @@ interface BodyWrapperProps {
 
 export const BodyWrapper = styled.main<BodyWrapperProps>`
   position: relative;
-  margin-top: ${({ $margin }) => $margin ?? '0px'};
   max-width: ${({ $maxWidth }) => $maxWidth ?? '420px'};
   width: 100%;
   background: ${({ theme }) => theme.surface1};
