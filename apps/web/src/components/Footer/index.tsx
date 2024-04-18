@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { GithubLogo } from '../Icons/Github'
-import { TwitterXLogo } from '../Icons/TwitterX'
 import { DiscordLogo } from '../Icons/Discord'
+import { GithubLogo } from '../Icons/Github'
 import { LinkedInLogo } from '../Icons/LinkedIn'
+import { TwitterXLogo } from '../Icons/TwitterX'
 import { HemiLogo } from '../Logo/HemiLogo'
 
-const StyledFooter = styled.div`
+const StyledFooter = styled.footer`
   width: 100%;
   margin-top: 7rem;
   padding: 24px 36px;
@@ -26,9 +27,9 @@ const Footer = () => {
 
   return (
     <StyledFooter>
-      <div>
+      <Link to="/">
         <HemiLogo width="74" data-testid="uniswap-logo" fill={iconColor} />
-      </div>
+      </Link>
       <SocialLinks>
         <a href="https://twitter.com/hemi_xyz/" target="_blank" rel="noopener noreferrer">
           <TwitterXLogo width={iconSize} height={iconSize} fill={iconColor} />
