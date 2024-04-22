@@ -250,7 +250,7 @@ const CHAIN_INFO: ChainInfoMap = {
     bridge: 'http://app.hemi.xyz',
     defaultListUrl: BASE_LIST,
     docs: 'https://docs.hemi.xyz',
-    explorer: 'https://testnet.explorer.hemi.network',
+    explorer: 'https://testnet.explorer.hemi.xyz',
     infoLink: 'https://docs.hemi.xyz/',
     label: 'Hemi Sepolia',
     statusPage: 'https://optimism.io/status',
