@@ -5,81 +5,19 @@ import { CSSProperties, FunctionComponent } from 'react'
 import { useTheme } from 'styled-components'
 import { useIsDarkMode } from 'theme/components/ThemeToggle'
 
-import { ReactComponent as arbitrum } from './ChainSymbols/arbitrum.svg'
-import { ReactComponent as avax } from './ChainSymbols/avax.svg'
-import { ReactComponent as base } from './ChainSymbols/base.svg'
-import { ReactComponent as bnb } from './ChainSymbols/bnb.svg'
-import { ReactComponent as celo } from './ChainSymbols/celo.svg'
-import { ReactComponent as celoLight } from './ChainSymbols/celo_light.svg'
-import { ReactComponent as ethereum } from './ChainSymbols/ethereum.svg'
-import { ReactComponent as optimism } from './ChainSymbols/optimism.svg'
-import { ReactComponent as polygon } from './ChainSymbols/polygon.svg'
+import { ReactComponent as hemi } from './ChainSymbols/hemi.svg'
 
 type SVG = FunctionComponent<React.SVGProps<SVGSVGElement>>
 type ChainUI = { Symbol: SVG; bgColor: string; textColor: string }
 
 export function getChainUI(chainId: SupportedInterfaceChain, darkMode: boolean): ChainUI
-export function getChainUI(chainId: ChainId, darkMode: boolean): ChainUI | undefined {
+export function getChainUI(chainId: ChainId): ChainUI | undefined {
   switch (chainId) {
-    case ChainId.MAINNET:
-    case ChainId.GOERLI:
-    case ChainId.SEPOLIA:
+    case ChainId.HEMI_SEPOLIA:
       return {
-        Symbol: ethereum,
-        bgColor: '#6B8AFF33',
-        textColor: '#6B8AFF',
-      }
-    case ChainId.POLYGON:
-    case ChainId.POLYGON_MUMBAI:
-      return {
-        Symbol: polygon,
-        bgColor: '#9558FF33',
-        textColor: '#9558FF',
-      }
-    case ChainId.ARBITRUM_ONE:
-    case ChainId.ARBITRUM_GOERLI:
-      return {
-        Symbol: arbitrum,
-        bgColor: '#00A3FF33',
-        textColor: '#00A3FF',
-      }
-    case ChainId.OPTIMISM:
-    case ChainId.OPTIMISM_GOERLI:
-      return {
-        Symbol: optimism,
-        bgColor: '#FF042033',
-        textColor: '#FF0420',
-      }
-    case ChainId.CELO:
-    case ChainId.CELO_ALFAJORES:
-      return darkMode
-        ? {
-            Symbol: celo,
-            bgColor: '#FCFF5233',
-            textColor: '#FCFF52',
-          }
-        : {
-            Symbol: celoLight,
-            bgColor: '#FCFF5299',
-            textColor: '#655947',
-          }
-    case ChainId.AVALANCHE:
-      return {
-        Symbol: avax,
-        bgColor: '#E8414233',
-        textColor: '#E84142',
-      }
-    case ChainId.BNB:
-      return {
-        Symbol: bnb,
-        bgColor: '#EAB20033',
-        textColor: '#EAB200',
-      }
-    case ChainId.BASE:
-      return {
-        Symbol: base,
-        bgColor: '#0052FF33',
-        textColor: '#0052FF',
+        Symbol: hemi,
+        bgColor: '#F4F4F5',
+        textColor: '#A3A3A3',
       }
     default:
       return undefined
@@ -112,9 +50,12 @@ export function ChainLogo({
   if (!isSupportedChain(chainId)) return null
   const { label } = getChainInfo(chainId)
 
-  const { Symbol, bgColor } = getChainUI(chainId, darkMode)
+  const { Symbol, bgColor } = getChainUI(chainId, darkMode) || {}
   const iconSize = fillContainer ? '100%' : size
 
+  if (!Symbol) {
+    return null
+  }
   return (
     <svg
       width={iconSize}

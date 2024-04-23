@@ -5,8 +5,7 @@ import { useIsDarkMode } from 'theme/components/ThemeToggle'
 import { getAccent2, getNeutralContrast } from 'theme/utils'
 
 import { navDimensions } from '../nft/css/sprinkles.css'
-import { darkTheme, lightTheme, ThemeColors } from './colors'
-import { darkDeprecatedTheme, lightDeprecatedTheme } from './deprecatedColors'
+import {darkTheme as deprecatedDarkTheme, hemiDarkTheme, hemiLightTheme, lightTheme as deprecatedLightTheme, ThemeColors} from './colors'
 
 export const MEDIA_WIDTHS = {
   deprecated_upToExtraSmall: 500,
@@ -111,10 +110,12 @@ function getSettings(darkMode: boolean) {
 
 // eslint-disable-next-line import/no-unused-modules -- used in styled.d.ts
 export function getTheme(darkMode: boolean, overriddenColors?: Partial<ThemeColors>) {
-  const [colors, deprecatedColors] = darkMode ? [darkTheme, darkDeprecatedTheme] : [lightTheme, lightDeprecatedTheme]
+  const [colors, deprecatedColors] = darkMode
+    ? [hemiDarkTheme, deprecatedDarkTheme]
+    : [hemiLightTheme, deprecatedLightTheme]
   const colorsWithOverrides = applyOverriddenColors(colors, overriddenColors)
 
-  return { ...colorsWithOverrides, ...deprecatedColors, ...getSettings(darkMode) }
+  return { ...deprecatedColors, ...colorsWithOverrides, ...getSettings(darkMode) }
 }
 
 function applyOverriddenColors(defaultColors: ThemeColors, overriddenColors?: Partial<ThemeColors>) {
@@ -160,7 +161,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${({ theme }) => theme.accent1}; 
+    color: ${({ theme }) => theme.accent1};
   }
 
   :root {

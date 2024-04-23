@@ -18,6 +18,7 @@ import {
   ETH_BSC,
   OP,
   PORTAL_ETH_CELO,
+  TESNET_DAI_HEMI_SEPOLIA,
   USDC_ARBITRUM,
   USDC_ARBITRUM_GOERLI,
   USDC_AVALANCHE,
@@ -44,6 +45,7 @@ import {
   WETH_POLYGON,
   WETH_POLYGON_MUMBAI,
   WRAPPED_NATIVE_CURRENCY,
+  WETH_HEMI_SEPOLIA,
   nativeOnChain,
 } from './tokens'
 
@@ -131,6 +133,11 @@ export const COMMON_BASES: ChainCurrencyList = {
     USDT_AVALANCHE,
     WETH_AVALANCHE,
   ],
+  [ChainId.HEMI_SEPOLIA]: [
+    nativeOnChain(ChainId.HEMI_SEPOLIA),
+    TESNET_DAI_HEMI_SEPOLIA,
+    WETH_HEMI_SEPOLIA
+  ]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend

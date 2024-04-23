@@ -28,7 +28,15 @@
     "target": "ESNext",
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo/build", // avoid clobbering the cypress tsbuildinfo
     "types": ["jest"],
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+    "paths": {
+      "@uniswap/sdk-core": ["../../../node_modules/@hemilabs/sdk-core"],
+      "@uniswap/sdk-core/*": ["../../../node_modules/@hemilabs/sdk-core/*"],
+      "@uniswap/smart-order-router": ["../../../node_modules/@hemilabs/smart-order-router"],
+      "@uniswap/smart-order-router/*": ["../../../node_modules/@hemilabs/smart-order-router/*"],
+      "@uniswap/universal-router-sdk": ["../../../node_modules/@hemilabs/universal-router-sdk"],
+      "@uniswap/universal-router-sdk/*": ["../../../node_modules/@hemilabs/universal-router-sdk/*"]
+    }
   },
   "include": ["src/**/*", "src/**/*.json"],
 }

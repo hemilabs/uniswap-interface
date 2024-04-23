@@ -21,6 +21,7 @@ export function getBlocksPerMainnetEpochForChainId(chainId: number | undefined):
     case ChainId.ARBITRUM_ONE:
       return 46
     case ChainId.OPTIMISM:
+    case ChainId.HEMI_SEPOLIA:
       return 6
     case ChainId.POLYGON:
       return 5
@@ -241,6 +242,22 @@ const CHAIN_INFO: ChainInfoMap = {
     statusPage: 'https://status.base.org/',
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: darkTheme.chain_84531,
+  },
+  // TODO confirm all this information (https://github.com/hemilabs/interface/issues/2)
+  [ChainId.HEMI_SEPOLIA]: {
+    networkType: NetworkType.L2,
+    blockWaitMsBeforeWarning: ms(`25m`),
+    bridge: 'http://app.hemi.xyz',
+    defaultListUrl: BASE_LIST,
+    docs: 'https://docs.hemi.xyz',
+    explorer: 'https://testnet.explorer.hemi.xyz',
+    infoLink: 'https://docs.hemi.xyz/',
+    label: 'Hemi Sepolia',
+    statusPage: 'https://optimism.io/status',
+    helpCenterUrl: 'https://docs.hemi.xyz',
+    nativeCurrency: { name: 'Testnet Hemi Ether', symbol: 'thETH', decimals: 18 },
+    color: darkTheme.chain_10,
+    backgroundColor: darkTheme.chain_10_background,
   },
 } as const
 

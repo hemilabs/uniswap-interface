@@ -8,7 +8,7 @@ import { ButtonText } from 'theme/components'
 import { AutoColumn } from '../Column'
 
 export const PageWrapper = styled.div`
-  padding: 68px 8px 0px;
+  padding: 0 8px 0;
   max-width: 480px;
   width: 100%;
 
@@ -51,7 +51,7 @@ export const ArrowWrapper = styled.div<{ clickable: boolean }>`
   margin-bottom: -18px;
   margin-left: auto;
   margin-right: auto;
-  background-color: ${({ theme }) => theme.surface2};
+  background-color: ${({ theme }) => theme.surface1};
   border: 4px solid;
   border-color: ${({ theme }) => theme.surface1};
 
@@ -136,6 +136,10 @@ export const SwapShowAcceptChanges = styled(AutoColumn)`
   border-radius: 12px;
 `
 
+export const SwapFormWrapper = styled.div`
+  background-color: ${({ theme }) => theme.surface1};
+  padding: 16px;
+`
 export const SwapSection = styled.div`
   background-color: ${({ theme }) => theme.surface2};
   border-radius: 16px;
@@ -180,12 +184,17 @@ export const ArrowContainer = styled.div`
 `
 
 export const SwapHeaderTabButton = styled(ButtonText)<{ $isActive: boolean }>`
-  color: ${({ theme, $isActive }) => ($isActive ? theme.neutral1 : theme.neutral2)};
-  background-color: ${({ theme, $isActive }) => $isActive && theme.surface3};
+  color: ${({ theme, $isActive }) => ($isActive ? theme.accent1 : theme.fgColor)};
+  background-color: ${({ theme }) => theme.btnBg};
+  border: 1px solid ${({ theme }) => theme.mainBorderColor};
   padding: 8px 16px;
-  border-radius: 20px;
-  gap: 4px;
-  font-weight: 485;
+  &:first-child {
+    border-radius: 12px 0 0 12px;
+  }
+  &:last-child {
+    border-radius: 0 12px 12px 0;
+    border-left: 0;
+  }
   &:focus {
     text-decoration: none;
   }

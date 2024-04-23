@@ -11,22 +11,21 @@ import { useCallback, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { RowBetween, RowFixed } from '../Row'
 import SettingsTab from '../Settings'
-import SwapBuyFiatButton from './SwapBuyFiatButton'
 import { SwapTab } from './constants'
 import { SwapHeaderTabButton } from './styled'
 
 const StyledSwapHeader = styled(RowBetween)`
-  margin-bottom: 12px;
-  padding-right: 4px;
-  color: ${({ theme }) => theme.neutral2};
+  margin-bottom: 54px;
+  display: flex;
+  justify-content: center;
 `
 
 const HeaderButtonContainer = styled(RowFixed)<{ compact: boolean }>`
-  gap: ${({ compact }) => (compact ? 0 : 16)}px;
-
   ${SwapHeaderTabButton} {
     ${({ compact }) => compact && 'padding: 8px 12px;'}
   }
+  border-radius: 12px;
+  box-shadow: 0px 2px 4px 0px #00000008;
 `
 
 const PathnameToTab: { [key: string]: SwapTab } = {
@@ -75,7 +74,6 @@ export default function SwapHeader({ compact, syncTabToUrl }: { compact: boolean
     <StyledSwapHeader>
       <HeaderButtonContainer compact={compact}>
         <SwapHeaderTabButton
-          as={pathname === '/swap' ? 'h1' : 'button'}
           role="button"
           tabIndex={0}
           $isActive={currentTab === SwapTab.Swap}
@@ -105,7 +103,6 @@ export default function SwapHeader({ compact, syncTabToUrl }: { compact: boolean
             <Trans>Send</Trans>
           </SwapHeaderTabButton>
         )}
-        <SwapBuyFiatButton />
       </HeaderButtonContainer>
       {currentTab === SwapTab.Swap && (
         <RowFixed>
