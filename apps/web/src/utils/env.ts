@@ -15,19 +15,14 @@ export function isProductionEnv(): boolean {
   return process.env.NODE_ENV === 'production' && !isStagingEnv()
 }
 
-export function isAppUniswapOrg({ hostname }: { hostname: string }): boolean {
-  return hostname === 'app.uniswap.org'
-}
-
-export function isAppUniswapStagingOrg({ hostname }: { hostname: string }): boolean {
-  return hostname === 'app.corn-staging.com'
+export function isAppHemiXyz({ hostname }: { hostname: string }): boolean {
+  return hostname === 'hemi.xyz'
 }
 
 export function isBrowserRouterEnabled(): boolean {
   if (isProductionEnv()) {
     if (
-      isAppUniswapOrg(window.location) ||
-      isAppUniswapStagingOrg(window.location) ||
+      isAppHemiXyz(window.location) ||
       isLocalhost(window.location) // cypress tests
     ) {
       return true
@@ -43,8 +38,7 @@ function isLocalhost({ hostname }: { hostname: string }): boolean {
 
 export function isSentryEnabled(): boolean {
   // Disable in e2e test environments
-  if (isStagingEnv() && !isAppUniswapStagingOrg(window.location)) return false
-  if (isProductionEnv() && !isAppUniswapOrg(window.location)) return false
+  if (isProductionEnv() && !isAppHemiXyz(window.location)) return false
   return process.env.REACT_APP_SENTRY_ENABLED === 'true'
 }
 

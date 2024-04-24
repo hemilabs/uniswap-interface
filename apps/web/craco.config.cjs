@@ -147,6 +147,10 @@ module.exports = {
         fallback: {
           // - react-markdown requires path
           path: require.resolve('path-browserify'),
+          http: false,
+          https: false,
+          fs: false,
+          assert: false,
         },
       })
 

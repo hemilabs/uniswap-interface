@@ -72,7 +72,7 @@ createRoot(container).render(
       <Provider store={store}>
         <FeatureFlagsProvider>
           <QueryClientProvider client={queryClient}>
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
               <LanguageProvider>
                 <Web3Provider>
                   <ApolloProvider>
