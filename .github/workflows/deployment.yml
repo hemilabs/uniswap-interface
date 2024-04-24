@@ -20,7 +20,7 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Install Dependencies
-        run: yarn install --immutable --immutable-cache
+        run: yarn install --immutable
 
       - name: Build site
         run: |
