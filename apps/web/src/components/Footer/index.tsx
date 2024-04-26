@@ -27,8 +27,8 @@ const Footer = () => {
 
   return (
     <StyledFooter>
-      <Link to="/">
-        <HemiLogo width="74" data-testid="uniswap-logo" fill={iconColor} />
+      <Link to="/" style={{ cursor: 'pointer'}}>
+        <HemiLogo clickable data-testid="uniswap-logo" fill={iconColor} width="74" />
       </Link>
       <SocialLinks>
         <a href="https://twitter.com/hemi_xyz/" target="_blank" rel="noopener noreferrer">
