@@ -90,7 +90,7 @@ export default function SettingsMenu({
             <Trans>Preferences</Trans>
           </SectionTitle>
           <ToggleWrapper currencyConversionEnabled={currencyConversionEnabled}>
-            {/*<ThemeToggle /> TODO: Enable when dark mode is completed ref: https://github.com/hemilabs/pure.finance/issues/31 */}
+            {/*<ThemeToggle /> TODO: Enable when dark mode is completed ref: https://github.com/hemilabs/interface/issues/16 */}
             <SmallBalanceToggle />
             <SpamToggle />
             <AnalyticsToggle />

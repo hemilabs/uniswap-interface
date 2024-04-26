@@ -143,7 +143,10 @@ function applyOverriddenColors(defaultColors: ThemeColors, overriddenColors?: Pa
 }
 
 export function ThemeProvider({ children, ...overriddenColors }: PropsWithChildren<Partial<ThemeColors>>) {
-  const darkMode = useIsDarkMode()
+  //const darkMode = useIsDarkMode()
+  // TODO: Enable when dark mode is completed ref: https://github.com/hemilabs/interface/issues/16
+  const darkMode = false
+
   // eslint-disable-next-line react-hooks/exhaustive-deps -- only update when darkMode or overriddenColors' entries change
   const themeObject = useMemo(() => getTheme(darkMode, overriddenColors), [darkMode, JSON.stringify(overriddenColors)])
 
