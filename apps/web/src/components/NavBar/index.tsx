@@ -2,24 +2,20 @@ import { Trans } from '@lingui/macro'
 import { useWeb3React } from '@web3-react/core'
 import { HemiLogo } from 'components/Logo/HemiLogo'
 import Web3Status from 'components/Web3Status'
-import { useIsLandingPage } from 'hooks/useIsLandingPage'
 import { useIsNftPage } from 'hooks/useIsNftPage'
 import { useIsPoolsPage } from 'hooks/useIsPoolsPage'
 import { Box } from 'nft/components/Box'
 import { Row } from 'nft/components/Flex'
 import { useProfilePageState } from 'nft/hooks'
 import { ProfilePageStateType } from 'nft/types'
-import { GetTheAppButton } from 'pages/Landing/components/DownloadApp/GetTheAppButton'
 import { ReactNode, useCallback } from 'react'
 import { NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { useAccountDrawer } from 'components/AccountDrawer/MiniPortfolio/hooks'
 import { Z_INDEX } from 'theme/zIndex'
-import { useIsNavSearchInputVisible } from '../../nft/hooks/useIsNavSearchInputVisible'
 import { Bag } from './Bag'
 import { ChainSelector } from './ChainSelector'
-import { SearchBar } from './SearchBar'
 import * as styles from './style.css'
 
 const Nav = styled.nav`
@@ -51,6 +47,7 @@ const MenuItem = ({ href, dataTestId, id, isActive, children }: MenuItemProps) =
   )
 }
 
+// @TODO: Currently unused, consider using it when /pool page is added. Ref.: https://github.com/hemilabs/interface/issues/24
 export const PageTabs = () => {
   const { pathname } = useLocation()
   const isPoolActive = useIsPoolsPage()
@@ -71,10 +68,8 @@ export const PageTabs = () => {
 
 const Navbar = () => {
   const isNftPage = useIsNftPage()
-  const isLandingPage = useIsLandingPage()
   const sellPageState = useProfilePageState((state) => state.state)
   const navigate = useNavigate()
-  const isNavSearchInputVisible = useIsNavSearchInputVisible()
 
   const { account } = useWeb3React()
   const [accountDrawerOpen, toggleAccountDrawer] = useAccountDrawer()
@@ -115,7 +110,6 @@ const Navbar = () => {
                   <ChainSelector />
                 </Box>
               )}
-              {isLandingPage && <GetTheAppButton />}
               <Web3Status />
             </Row>
           </Box>
