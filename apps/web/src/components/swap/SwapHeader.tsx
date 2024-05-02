@@ -1,6 +1,5 @@
 import { Trans } from '@lingui/macro'
 import { ChainId } from '@uniswap/sdk-core'
-import { useLimitsEnabled } from 'featureFlags/flags/limits'
 import { useSendEnabled } from 'featureFlags/flags/send'
 import { useSwapAndLimitContext, useSwapContext } from 'state/swap/SwapContext'
 import styled from 'styled-components'
@@ -29,13 +28,12 @@ const HeaderButtonContainer = styled(RowFixed)<{ compact: boolean }>`
 `
 
 const PathnameToTab: { [key: string]: SwapTab } = {
-  '/swap': SwapTab.Swap,
+  '/': SwapTab.Swap,
   '/send': SwapTab.Send,
   '/limit': SwapTab.Limit,
 }
 
 export default function SwapHeader({ compact, syncTabToUrl }: { compact: boolean; syncTabToUrl: boolean }) {
-  const limitsEnabled = useLimitsEnabled()
   const sendEnabled = useSendEnabled() && !isIFramed()
   const { chainId, currentTab, setCurrentTab } = useSwapAndLimitContext()
   const {
@@ -51,7 +49,7 @@ export default function SwapHeader({ compact, syncTabToUrl }: { compact: boolean
     }
 
     setCurrentTab(PathnameToTab[pathname] ?? SwapTab.Swap)
-  }, [chainId, limitsEnabled, navigate, pathname, setCurrentTab])
+  }, [chainId, navigate, pathname, setCurrentTab])
 
   // Limits is only available on mainnet for now
   if (chainId !== ChainId.MAINNET && currentTab === SwapTab.Limit) {
@@ -83,16 +81,6 @@ export default function SwapHeader({ compact, syncTabToUrl }: { compact: boolean
         >
           <Trans>Swap</Trans>
         </SwapHeaderTabButton>
-        {limitsEnabled && chainId === ChainId.MAINNET && (
-          <SwapHeaderTabButton
-            $isActive={currentTab === SwapTab.Limit}
-            onClick={() => {
-              onTab(SwapTab.Limit)
-            }}
-          >
-            <Trans>Limit</Trans>
-          </SwapHeaderTabButton>
-        )}
         {sendEnabled && (
           <SwapHeaderTabButton
             $isActive={currentTab === SwapTab.Send}

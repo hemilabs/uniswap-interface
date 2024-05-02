@@ -248,7 +248,7 @@ export function SwapForm({ disableTokenInputs = false, onCurrencyChange }: SwapF
   // reset if they close warning without tokens in params
   const handleDismissTokenWarning = useCallback(() => {
     setDismissTokenWarning(true)
-    navigate('/swap/')
+    navigate('/')
   }, [navigate])
 
   // modal and loading

@@ -5,7 +5,7 @@ import { LDO, MNW, NMR, USDT as USDT_MAINNET } from 'constants/tokens'
 export const RESET_APPROVAL_TOKENS = [USDT_MAINNET, LDO, NMR, MNW]
 
 export enum SwapTab {
-  Swap = 'swap',
+  Swap = '',
   Limit = 'limit',
   Send = 'send',
 }

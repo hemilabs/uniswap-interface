@@ -8,8 +8,7 @@ import { isBrowserRouterEnabled } from 'utils/env'
 
 import { getDefaultTokensTitle } from './getDefaultTokensTitle'
 import { getExploreTitle } from './getExploreTitle'
-// High-traffic pages (index and /swap) should not be lazy-loaded.
-import Landing from './Landing'
+// High-traffic pages (swap) should not be lazy-loaded.
 import Swap from './Swap'
 
 const NftExplore = lazy(() => import('nft/pages/explore'))
@@ -94,13 +93,6 @@ const SwapTitle = t`Buy, sell & trade Ethereum and other top tokens on Uniswap`
 
 export const routes: RouteDefinition[] = [
   createRouteDefinition({
-    path: '/',
-    getTitle: () => t`Uniswap | Trade crypto & NFTs safely on the top DeFi exchange`,
-    getElement: (args) => {
-      return args.browserRouterEnabled && args.hash ? <Navigate to={args.hash.replace('#', '')} replace /> : <Landing />
-    },
-  }),
-  createRouteDefinition({
     path: '/explore',
     getTitle: getExploreTitle,
     nestedPaths: [':tab', ':chainName', ':tab/:chainName'],
@@ -164,7 +156,7 @@ export const routes: RouteDefinition[] = [
     getTitle: () => SwapTitle,
   }),
   createRouteDefinition({
-    path: '/swap',
+    path: '/',
     getElement: () => <Swap />,
     getTitle: () => SwapTitle,
   }),
