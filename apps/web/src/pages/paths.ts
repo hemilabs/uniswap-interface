@@ -14,7 +14,7 @@ export const paths = [
   '/vote/*',
   '/create-proposal',
   '/send',
-  '/swap',
+  '/',
   '/limit',
   '/limits',
   '/pool/v2/find',

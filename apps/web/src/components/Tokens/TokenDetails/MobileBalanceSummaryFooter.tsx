@@ -112,7 +112,7 @@ export default function MobileBalanceSummaryFooter() {
           </Balance>
         </BalanceInfo>
       )}
-      <SwapButton to={`/swap?chain=${chain}&outputCurrency=${currency.isNative ? NATIVE_CHAIN_ID : currency.address}`}>
+      <SwapButton to={`/?chain=${chain}&outputCurrency=${currency.isNative ? NATIVE_CHAIN_ID : currency.address}`}>
         <Trans>Swap</Trans>
       </SwapButton>
     </Wrapper>
