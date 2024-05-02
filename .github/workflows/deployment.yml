@@ -35,6 +35,6 @@ jobs:
           port: ${{ secrets.HOSTINGER_PORT }}
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           source: apps/web/build/*
-          target: public_html/uniswap
+          target: public_html/swap
           rm: true
           strip_components: 3
