@@ -1,0 +1,27 @@
+{
+  "name": "Hemi Token List",
+  "timestamp": "2024-05-03T16:25:27.888Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "tokens": [
+    {
+      "address": "0xec46E0EFB2EA8152da0327a5Eb3FF9a43956F13e",
+      "chainId": 743111,
+      "decimals": 18,
+      "logoURI": "https://optimistic.etherscan.io/token/images/MCDDai_32.png",
+      "name": "Hemi Tunneled DAI",
+      "symbol": "DAI"
+    },
+    {
+      "address": "0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A",
+      "chainId": 743111,
+      "decimals": 18,
+      "logoURI": "https://optimistic.etherscan.io/token/images/weth_28.png",
+      "name": "Wrapped Ether",
+      "symbol": "WETH"
+    }
+  ]
+}
