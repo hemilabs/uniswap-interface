@@ -64,10 +64,11 @@ export function ThemeColorMetaUpdater() {
 }
 
 export function useIsDarkMode(): boolean {
-  const mode = useAtomValue(themeModeAtom)
+  return false // TODO: Remove line when dark mode is completed ref: https://github.com/hemilabs/interface/issues/16
+  /*const mode = useAtomValue(themeModeAtom)
   const systemTheme = useAtomValue(systemThemeAtom)
 
-  return (mode === ThemeMode.AUTO ? systemTheme : mode) === ThemeMode.DARK
+  return (mode === ThemeMode.AUTO ? systemTheme : mode) === ThemeMode.DARK*/
 }
 
 export function useDarkModeManager(): [boolean, (mode: ThemeMode) => void] {
