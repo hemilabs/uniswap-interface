@@ -1,5 +1,5 @@
 import tokenLogoLookup from 'constants/tokenLogoLookup'
-import { isCelo, nativeOnChain } from 'constants/tokens'
+import { nativeOnChain } from 'constants/tokens'
 import { checkWarning, WARNING_LEVEL } from 'constants/tokenSafety'
 import { chainIdToNetworkName, getNativeLogoURI } from 'lib/hooks/useCurrencyLogoURIs'
 import uriToHttp from 'lib/utils/uriToHttp'
@@ -49,7 +49,7 @@ export function getInitialUrl(
   const networkName = chainId ? chainIdToNetworkName(chainId) : 'ethereum'
   const checksummedAddress = isAddress(address)
 
-  if (chainId && isCelo(chainId) && address === nativeOnChain(chainId).wrapped.address) {
+  if (chainId && address === nativeOnChain(chainId).wrapped.address) {
     return celoLogo
   }
 

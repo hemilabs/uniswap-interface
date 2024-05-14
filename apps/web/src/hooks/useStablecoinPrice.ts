@@ -10,7 +10,7 @@ import {
   CUSD_CELO,
   CUSD_CELO_ALFAJORES,
   DAI_OPTIMISM,
-  TESNET_DAI_HEMI_SEPOLIA,
+  DAI_HEMI_SEPOLIA,
   USDC_ARBITRUM,
   USDC_ARBITRUM_GOERLI,
   USDC_AVALANCHE,
@@ -41,7 +41,7 @@ export const STABLECOIN_AMOUNT_OUT: { [key in SupportedInterfaceChain]: Currency
   [ChainId.ARBITRUM_GOERLI]: CurrencyAmount.fromRawAmount(USDC_ARBITRUM_GOERLI, 10_000e6),
   [ChainId.POLYGON_MUMBAI]: CurrencyAmount.fromRawAmount(USDC_POLYGON_MUMBAI, 10_000e6),
   [ChainId.CELO_ALFAJORES]: CurrencyAmount.fromRawAmount(CUSD_CELO_ALFAJORES, 10_000e6),
-  [ChainId.HEMI_SEPOLIA]: CurrencyAmount.fromRawAmount(TESNET_DAI_HEMI_SEPOLIA, 10_000e18),
+  [ChainId.HEMI_SEPOLIA]: CurrencyAmount.fromRawAmount(DAI_HEMI_SEPOLIA, 10_000e18),
 }
 
 /**

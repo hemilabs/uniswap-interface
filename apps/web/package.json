@@ -171,7 +171,7 @@
     "@graphql-codegen/typescript-operations": "^3.0.2",
     "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@graphql-codegen/typescript-resolvers": "^3.2.1",
-    "@hemilabs/sdk-core": "4.2.0-beta.2",
+    "@hemilabs/sdk-core": "4.2.0-beta.5",
     "@hemilabs/smart-order-router": "3.26.1-beta.1",
     "@hemilabs/universal-router-sdk": "1.8.2-beta.3",
     "@juggle/resize-observer": "3.4.0",

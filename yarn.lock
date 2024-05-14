@@ -5193,9 +5193,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hemilabs/sdk-core@npm:4.2.0-beta.2":
-  version: 4.2.0-beta.2
-  resolution: "@hemilabs/sdk-core@npm:4.2.0-beta.2"
+"@hemilabs/sdk-core@npm:4.2.0-beta.5":
+  version: 4.2.0-beta.5
+  resolution: "@hemilabs/sdk-core@npm:4.2.0-beta.5"
   dependencies:
     "@ethersproject/address": ^5.0.2
     "@ethersproject/bignumber": ^5.7.0
@@ -5204,7 +5204,7 @@ __metadata:
     jsbi: ^3.1.4
     tiny-invariant: ^1.1.0
     toformat: ^2.0.0
-  checksum: 9f69b0898aa9c97a905fb20022bd2f8de3b8cb4d7ad5818d2cef97a9ce913dfe2874fe9967a3362a6ee23cb3844674ab8ce2f3efedc801ee43362582e6ca8e3a
+  checksum: 49d1a78f63928752cf78c661f501e541c6d38b8eb2e4787d97b1cb70615442eff3f372960cb544636a9ad36ae43b714157ba8336709d475b280fa4babf4dee54
   languageName: node
   linkType: hard
 
@@ -13531,7 +13531,7 @@ __metadata:
     "@graphql-codegen/typescript-operations": ^3.0.2
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
     "@graphql-codegen/typescript-resolvers": ^3.2.1
-    "@hemilabs/sdk-core": 4.2.0-beta.2
+    "@hemilabs/sdk-core": 4.2.0-beta.5
     "@hemilabs/smart-order-router": 3.26.1-beta.1
     "@hemilabs/universal-router-sdk": 1.8.2-beta.3
     "@juggle/resize-observer": 3.4.0

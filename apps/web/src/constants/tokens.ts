@@ -247,12 +247,20 @@ export const DAI_AVALANCHE = new Token(
   'Dai.e Token'
 )
 
-export const TESNET_DAI_HEMI_SEPOLIA = new Token(
+export const DAI_HEMI_SEPOLIA = new Token(
   ChainId.HEMI_SEPOLIA,
   '0xec46e0efb2ea8152da0327a5eb3ff9a43956f13e',
   18,
-  'thDAI',
+  'DAI',
   'Testnet Hemi DAI'
+)
+
+export const USDT_HEMI_SEPOLIA = new Token(
+  ChainId.HEMI_SEPOLIA,
+  '0x3Adf21A6cbc9ce6D5a3ea401E7Bae9499d391298',
+  6,
+  'USDT.e',
+  'Tether USD'
 )
 
 export const WETH_HEMI_SEPOLIA = new Token(
@@ -441,6 +449,27 @@ class AvaxNativeCurrency extends NativeCurrency {
   }
 }
 
+export function isHemi(chainId: number): chainId is ChainId.HEMI {
+  return chainId === ChainId.HEMI
+}
+
+class HemiNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  get wrapped(): Token {
+    if (!isHemi(this.chainId)) throw new Error('Not Hemi')
+    const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
+    invariant(wrapped instanceof Token)
+    return wrapped
+  }
+
+  public constructor(chainId: number) {
+    if (!isHemi(chainId)) throw new Error('Not Hemi')
+    super(chainId, 18, 'ETH', 'ETH')
+  }
+}
 export function isHemiSepolia(chainId: number): chainId is ChainId.HEMI_SEPOLIA {
   return chainId === ChainId.HEMI_SEPOLIA
 }
@@ -459,7 +488,7 @@ class HemiSepoliaNativeCurrency extends NativeCurrency {
 
   public constructor(chainId: number) {
     if (!isHemiSepolia(chainId)) throw new Error('Not Hemi Sepolia')
-    super(chainId, 18, 'thETH', 'thETH')
+    super(chainId, 18, 'ETH', 'ETH')
   }
 }
 
@@ -489,6 +518,7 @@ const cachedNativeCurrency: { [chainId: number]: NativeCurrency | Token } = {}
 export function nativeOnChain(chainId: number): NativeCurrency | Token {
   if (cachedNativeCurrency[chainId]) return cachedNativeCurrency[chainId]
   let nativeCurrency: NativeCurrency | Token
+
   if (isPolygon(chainId)) {
     nativeCurrency = new PolygonNativeCurrency(chainId)
   } else if (isCelo(chainId)) {
@@ -497,6 +527,8 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
     nativeCurrency = new BscNativeCurrency(chainId)
   } else if (isAvalanche(chainId)) {
     nativeCurrency = new AvaxNativeCurrency(chainId)
+  } else if (isHemi(chainId)) {
+    nativeCurrency = new HemiNativeCurrency(chainId)
   } else if (isHemiSepolia(chainId)) {
     nativeCurrency = new HemiSepoliaNativeCurrency(chainId)
   } else {
@@ -522,6 +554,9 @@ export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in ChainId]?: s
     [ChainId.SEPOLIA]: USDC_SEPOLIA.address,
     [ChainId.AVALANCHE]: USDC_AVALANCHE.address,
   },
+  USDT: {
+    [ChainId.HEMI_SEPOLIA]: USDT_HEMI_SEPOLIA.address,
+  },
 }
 
 const STABLECOINS: { [chainId in ChainId]: Token[] } = {
@@ -544,7 +579,7 @@ const STABLECOINS: { [chainId in ChainId]: Token[] } = {
   [ChainId.BASE_GOERLI]: [],
   [ChainId.OPTIMISM_SEPOLIA]: [USDC_SEPOLIA],
   [ChainId.ARBITRUM_SEPOLIA]: [],
-  [ChainId.HEMI_SEPOLIA]: [TESNET_DAI_HEMI_SEPOLIA],
+  [ChainId.HEMI_SEPOLIA]: [DAI_HEMI_SEPOLIA, USDT_HEMI_SEPOLIA],
 }
 
 export function isStablecoin(currency?: Currency): boolean {
