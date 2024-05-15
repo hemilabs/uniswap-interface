@@ -1,4 +1,4 @@
-import { ChainId, WETH9 } from '@uniswap/sdk-core'
+/*import { ChainId, WETH9 } from '@uniswap/sdk-core'
 import {
   MATIC_MAINNET,
   USDC_ARBITRUM,
@@ -8,7 +8,7 @@ import {
   USDT,
   WBTC,
   WETH_POLYGON,
-} from 'constants/tokens'
+} from 'constants/tokens'*/
 import { Chain } from 'graphql/data/__generated__/types-and-hooks'
 import { validateUrlChainParam } from 'graphql/data/util'
 
@@ -23,7 +23,7 @@ const CURRENCY_CODES: {
     native: MoonpaySupportedCurrencyCode
   }
 } = {
-  [Chain.Ethereum]: {
+  /*[Chain.Ethereum]: {
     [WETH9[ChainId.MAINNET]?.address.toLowerCase()]: 'weth',
     [USDC_MAINNET.address.toLowerCase()]: 'usdc',
     [USDT.address.toLowerCase()]: 'usdt',
@@ -43,7 +43,7 @@ const CURRENCY_CODES: {
     [USDC_POLYGON.address.toLowerCase()]: 'usdc_polygon',
     [WETH_POLYGON.address.toLowerCase()]: 'eth_polygon',
     native: 'matic_polygon',
-  },
+  },*/
 }
 
 export function getDefaultCurrencyCode(

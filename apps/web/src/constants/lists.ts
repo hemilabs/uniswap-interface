@@ -9,7 +9,7 @@ export const AVALANCHE_LIST =
   'https://raw.githubusercontent.com/ava-labs/avalanche-bridge-resources/main/token_list.json'
 export const BASE_LIST =
   'https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/optimism.tokenlist.json'
-export const HEMI_TESTNET_LIST = 'https://raw.githubusercontent.com/hemilabs/interface/main/hemi-testnet.tokenlist.json'
+export const HEMI_TESTNET_LIST = 'https://raw.githubusercontent.com/hemilabs/token-list/master/src/hemi.tokenlist.json'
 
 export const UNSUPPORTED_LIST_URLS: string[] = []
 

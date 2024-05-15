@@ -38,7 +38,7 @@
     "immer": "9.0.21",
     "@uniswap/v2-sdk": "4.1.0",
     "@apollo/client": "3.9.6",
-    "@hemilabs/sdk-core": "4.2.0-beta.2",
+    "@hemilabs/sdk-core": "4.2.0-beta.5",
     "@react-navigation/routers": "6.1.9",
     "@react-navigation/core": "6.2.2",
     "@sideway/formula": "3.0.1",

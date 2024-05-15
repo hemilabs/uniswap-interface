@@ -92,7 +92,7 @@ module.exports = {
         maxRetries: 3,
       }),
       new NormalModuleReplacementPlugin(
-        /@uniswap\/(sdk-core|smart-order-router|universal-router-sdk)/,
+        /@uniswap\/(permit2-sdk|sdk-core|smart-order-router|universal-router-sdk)/,
         function(resource) {
           resource.request = resource.request.replace(/@uniswap/, '@hemilabs');
         }
