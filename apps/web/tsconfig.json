@@ -32,6 +32,8 @@
     "paths": {
       "@uniswap/sdk-core": ["../../../node_modules/@hemilabs/sdk-core"],
       "@uniswap/sdk-core/*": ["../../../node_modules/@hemilabs/sdk-core/*"],
+      "@uniswap/permit2-sdk": ["../../../node_modules/@hemilabs/permit2-sdk"],
+      "@uniswap/permit2-sdk/*": ["../../../node_modules/@hemilabs/permit2-sdk/*"],
       "@uniswap/smart-order-router": ["../../../node_modules/@hemilabs/smart-order-router"],
       "@uniswap/smart-order-router/*": ["../../../node_modules/@hemilabs/smart-order-router/*"],
       "@uniswap/universal-router-sdk": ["../../../node_modules/@hemilabs/universal-router-sdk"],

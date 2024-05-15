@@ -5193,6 +5193,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hemilabs/permit2-sdk@npm:1.2.0-beta.1":
+  version: 1.2.0-beta.1
+  resolution: "@hemilabs/permit2-sdk@npm:1.2.0-beta.1"
+  dependencies:
+    ethers: ^5.3.1
+    tiny-invariant: ^1.3.1
+  checksum: 49678f50dfce76dfea784674d67bf2d661e9c3050af4b7463ca14282832d0e6abb612640e11b2391684c4a99f91f91f378e21cd60da86d8de3bd307b963c0360
+  languageName: node
+  linkType: hard
+
 "@hemilabs/sdk-core@npm:4.2.0-beta.5":
   version: 4.2.0-beta.5
   resolution: "@hemilabs/sdk-core@npm:4.2.0-beta.5"
@@ -13531,6 +13541,7 @@ __metadata:
     "@graphql-codegen/typescript-operations": ^3.0.2
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
     "@graphql-codegen/typescript-resolvers": ^3.2.1
+    "@hemilabs/permit2-sdk": 1.2.0-beta.1
     "@hemilabs/sdk-core": 4.2.0-beta.5
     "@hemilabs/smart-order-router": 3.26.1-beta.1
     "@hemilabs/universal-router-sdk": 1.8.2-beta.3
