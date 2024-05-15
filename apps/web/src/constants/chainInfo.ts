@@ -8,7 +8,7 @@ import {
   AVALANCHE_LIST,
   BASE_LIST,
   CELO_LIST,
-  HEMI_TESTNET_LIST,
+  HEMI_LIST,
   OPTIMISM_LIST,
   PLASMA_BNB_LIST,
 } from './lists'
@@ -256,7 +256,7 @@ const CHAIN_INFO: ChainInfoMap = {
     networkType: NetworkType.L2,
     blockWaitMsBeforeWarning: ms(`25m`),
     bridge: 'http://app.hemi.xyz',
-    defaultListUrl: HEMI_TESTNET_LIST,
+    defaultListUrl: HEMI_LIST,
     docs: 'https://docs.hemi.xyz',
     explorer: 'https://testnet.explorer.hemi.xyz',
     infoLink: 'https://docs.hemi.xyz/',
