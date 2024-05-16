@@ -5,7 +5,7 @@ import {
   DAI_HEMI_SEPOLIA,
   WRAPPED_NATIVE_CURRENCY,
   WETH_HEMI_SEPOLIA,
-  nativeOnChain,
+  nativeOnChain, USDT_HEMI_SEPOLIA, USDC_HEMI_SEPOLIA,
 } from './tokens'
 
 type ChainTokenList = {

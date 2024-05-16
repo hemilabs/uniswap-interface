@@ -9,12 +9,12 @@ export const AVALANCHE_LIST =
   'https://raw.githubusercontent.com/ava-labs/avalanche-bridge-resources/main/token_list.json'
 export const BASE_LIST =
   'https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/optimism.tokenlist.json'
-export const HEMI_TESTNET_LIST = 'https://raw.githubusercontent.com/hemilabs/token-list/master/src/hemi.tokenlist.json'
+export const HEMI_LIST = 'https://raw.githubusercontent.com/hemilabs/token-list/master/src/hemi.tokenlist.json'
 
 export const UNSUPPORTED_LIST_URLS: string[] = []
 
 // default lists to be 'active' aka searched across
-export const DEFAULT_ACTIVE_LIST_URLS: string[] = [HEMI_TESTNET_LIST]
+export const DEFAULT_ACTIVE_LIST_URLS: string[] = [HEMI_LIST]
 export const DEFAULT_INACTIVE_LIST_URLS: string[] = []
 
 export const DEFAULT_LIST_OF_LISTS: string[] = [...DEFAULT_ACTIVE_LIST_URLS, ...DEFAULT_INACTIVE_LIST_URLS]
