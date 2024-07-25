@@ -26,6 +26,8 @@ jobs:
         run: |
           cd apps/web
           yarn run build:production
+        end:
+          PUBLIC_URL: "."
 
       - name: Copy files to Hostinger
         uses: appleboy/scp-action@master
