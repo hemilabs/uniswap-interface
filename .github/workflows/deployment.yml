@@ -26,7 +26,7 @@ jobs:
         run: |
           cd apps/web
           yarn run build:production
-        end:
+        env:
           PUBLIC_URL: "."
 
       - name: Copy files to Hostinger
