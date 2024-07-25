@@ -16,7 +16,7 @@ export function isProductionEnv(): boolean {
 }
 
 export function isAppHemiXyz({ hostname }: { hostname: string }): boolean {
-  return hostname === 'hemi.xyz'
+  return hostname === 'swap.hemi.xyz'
 }
 
 export function isBrowserRouterEnabled(): boolean {
