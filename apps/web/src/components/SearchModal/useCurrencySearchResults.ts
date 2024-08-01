@@ -74,7 +74,10 @@ export function useCurrencySearchResults({
       // If there is no query, filter out unselected user-added tokens with no balance.
       if (!searchQuery && token instanceof UserAddedToken) {
         if (selectedCurrency?.equals(token) || otherSelectedCurrency?.equals(token)) return true
-        return balanceMap[token.address.toLowerCase()]?.usdValue > 0
+        // In Hemi, obtaining the USD value of a token is mostly not possible
+        // due to the lack of routes, etc. This fact affects the token lists,
+        // like by triggering the condition below. Therefore, it was hacked.
+        return true // balanceMap[token.address.toLowerCase()]?.usdValue > 0
       }
 
       return true
