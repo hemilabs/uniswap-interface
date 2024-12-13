@@ -126,7 +126,7 @@ export const PUBLIC_RPC_URLS: Record<SupportedInterfaceChain, string[]> = {
   ],
   [ChainId.HEMI_SEPOLIA]: [
     // "Safe" URLs
-    'https://int02.testnet.rpc.hemi.network/rpc' 
+    'https://testnet.rpc.hemi.network/rpc'
   ]
 }
 
