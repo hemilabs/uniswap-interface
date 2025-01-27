@@ -44,7 +44,7 @@ yarn storybook
 
 ## Chromatic
 
-Chromatic is a cloud service build for Storybook. It allows running visual tests with zero-config.
+Chromatic is a cloud service built for Storybook. It allows running visual tests with zero-config.
 
 Chromatic is set up to build and publish our Storybook for each PR. ([example build](https://www.chromatic.com/build?appId=61d89aa649fc7d003ae21c76&number=25)).
 
@@ -61,7 +61,7 @@ Storybook inside `@uniswap/mobile` is still experimental. Feel free to modify th
 
 ### To research
 
-- Accessability tests
+- Accessibility tests
 - Interaction tests
 
 ### Addons
