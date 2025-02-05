@@ -251,19 +251,18 @@ const CHAIN_INFO: ChainInfoMap = {
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: darkTheme.chain_84531,
   },
-  // TODO confirm all this information (https://github.com/hemilabs/interface/issues/2)
   [ChainId.HEMI_SEPOLIA]: {
     networkType: NetworkType.L2,
     blockWaitMsBeforeWarning: ms(`25m`),
-    bridge: 'http://app.hemi.xyz',
+    bridge: 'https://app.hemi.xyz/en/tunnel',
     defaultListUrl: HEMI_LIST,
     docs: 'https://docs.hemi.xyz',
     explorer: 'https://testnet.explorer.hemi.xyz',
     infoLink: 'https://docs.hemi.xyz/',
     label: 'Hemi Sepolia',
-    statusPage: 'https://optimism.io/status',
+    statusPage: 'https://hemistatus.com/',
     helpCenterUrl: 'https://docs.hemi.xyz',
-    nativeCurrency: { name: 'Testnet Hemi Ether', symbol: 'thETH', decimals: 18 },
+    nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   },
 } as const
 
