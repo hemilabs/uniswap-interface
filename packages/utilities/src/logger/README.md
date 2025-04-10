@@ -5,7 +5,7 @@
 If you're manually logging an error, make sure you log an actual error object and not just a string.
 
 Don't use: `logger.error('Invalid input')`
-Do use: `logger.error(new Error('Invalid input')`
+Do use: `logger.error(new Error('Invalid input'))`
 
 The reason is that new Error() makes it so that Sentry knows exactly where this was called. Otherwise, the stack trace is useless.
 
